@@ -1,0 +1,27 @@
+<dataMapping>
+    <sql-query description="Saviynt User (Saviynt Identty) Import Query" uniquecolumnsascommaseparated="username">
+        <![CDATA[SELECT Username,FirstName,LastName,Email,CAST(isActive AS INT) as isActive,Department,City,StateOrProvince,UpdateDate from dbo.ACCOUNT
+]]>
+    </sql-query>
+    <importsettings>
+        <zeroDayProvisioning>false</zeroDayProvisioning>
+        <generateEmail>false</generateEmail>
+        <userNotInFileAction>NOACTION</userNotInFileAction>
+        <checkRules>false</checkRules>
+        <buildUserMap>false</buildUserMap>
+        <generateSystemUsername>false</generateSystemUsername>
+        <userOperationsAllowed>CREATE OR UPDATE</userOperationsAllowed>
+        <userReconcillationField>username</userReconcillationField>
+    </importsettings>
+    <mapper description="This is the mapping field for Saviynt Field name">
+        <mapfield saviyntproperty="firstname" sourceproperty="FirstName" type="character"/>
+        <mapfield saviyntproperty="lastname" sourceproperty="LastName" type="character"/>
+        <mapfield saviyntproperty="email" sourceproperty="Email" type="character"/>
+        <mapfield saviyntproperty="statuskey" sourceproperty="isActive" type="number"/>
+        <mapfield saviyntproperty="departmentname" sourceproperty="Department" type="character"/>
+        <mapfield saviyntproperty="city" sourceproperty="City" type="character"/>
+        <mapfield saviyntproperty="state" sourceproperty="StateOrProvince" type="character"/>
+        <mapfield saviyntproperty="username" sourceproperty="Username" type="character"/>
+        <mapfield saviyntproperty="updatedate" sourceproperty="UpdateDate" type="character"/>
+    </mapper>
+</dataMapping>
